@@ -1,7 +1,7 @@
 import 'package:app/core/navigation/transition.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../home.dart';
+import '../../presentation/features/home/pages/home.dart';
 import '../../presentation/features/about/pages/about.dart';
 import '../../presentation/features/contact/pages/contact.dart';
 import '../../presentation/features/news/pages/news.dart';

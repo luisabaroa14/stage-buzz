@@ -1,4 +1,4 @@
-import 'package:app/concert_rows.dart';
+import 'package:app/presentation/features/home/widgets/concert_rows.dart';
 import 'package:app/core/utils/constants/assets.dart';
 import 'package:app/presentation/features/about/pages/about.dart';
 import 'package:app/presentation/features/contact/pages/contact.dart';
@@ -8,9 +8,9 @@ import 'package:app/presentation/widgets/buttons/hover_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'core/navigation/app_router.dart';
-import 'core/utils/constants/colors.dart';
-import 'core/utils/theme.dart';
+import '../../../../core/navigation/app_router.dart';
+import '../../../../core/utils/constants/colors.dart';
+import '../../../../core/utils/theme.dart';
 
 class HomeScreen extends StatefulWidget {
   static const route = '/home';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../home.dart';
+import '../../home/pages/home.dart';
 
 class AboutScreen extends StatelessWidget {
   static const route = '/about';
