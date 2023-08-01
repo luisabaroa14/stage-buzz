@@ -1,12 +1,19 @@
 import 'package:app/concert_rows.dart';
 import 'package:app/core/utils/constants/assets.dart';
+import 'package:app/presentation/features/about/pages/about.dart';
+import 'package:app/presentation/features/contact/pages/contact.dart';
+import 'package:app/presentation/features/news/pages/news.dart';
+import 'package:app/presentation/features/events/pages/events.dart';
 import 'package:app/presentation/widgets/buttons/hover_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import 'core/navigation/app_router.dart';
 import 'core/utils/constants/colors.dart';
 import 'core/utils/theme.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const route = '/home';
   const HomeScreen({super.key});
 
   @override
@@ -118,10 +125,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Row(
             children: [
-              Image.asset(
-                logo1,
-                width: 150,
-                height: 150,
+              GestureDetector(
+                onTap: () => context.goNamed(HomeScreen.route),
+                child: Image.asset(
+                  logo1,
+                  width: 150,
+                  height: 150,
+                ),
               ),
               Expanded(
                 child: Container(
@@ -140,28 +150,30 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                         label: 'About',
                         borderColor: isDarkTheme ? whiteColor : blackColor,
                         hoverBorderColor: accentColor,
-                        onPressed: () {},
+                        onPressed: () => context.goNamed(AboutScreen.route),
                       ),
                       // SizedBox(width: constraints.maxWidth / 20),
                       HoverButton(
                         label: 'News',
                         borderColor: isDarkTheme ? whiteColor : blackColor,
                         hoverBorderColor: accentColor,
-                        onPressed: () {},
+                        onPressed: () => context.goNamed(NewsScreen.route),
                       ),
                       // SizedBox(width: constraints.maxWidth / 20),
                       HoverButton(
-                        label: 'Team',
+                        label: 'Events',
                         borderColor: isDarkTheme ? whiteColor : blackColor,
                         hoverBorderColor: accentColor,
-                        onPressed: () {},
+                        onPressed: () => context.goNamed(EventsScreen.route),
                       ),
                       // SizedBox(width: constraints.maxWidth / 20),
                       HoverButton(
                         label: 'Contact',
                         borderColor: isDarkTheme ? whiteColor : blackColor,
                         hoverBorderColor: accentColor,
-                        onPressed: () {},
+                        onPressed: () {
+                          AppRouter.router.goNamed(ContactScreen.route);
+                        },
                       ),
                     ],
                   ),

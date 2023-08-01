@@ -1,4 +1,4 @@
-import 'package:app/home.dart';
+import 'package:app/core/navigation/app_router.dart';
 import 'package:flutter/material.dart';
 
 import 'core/utils/constants/colors.dart';
@@ -12,16 +12,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+      routerConfig: AppRouter.router,
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
         colorScheme: ColorScheme.fromSwatch().copyWith(
           primary: accentColor,
         ),
       ),
-      home: const HomeScreen(),
     );
   }
 }
