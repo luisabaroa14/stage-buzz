@@ -3,20 +3,20 @@
     "configurations": [
         {
             "name": "app",
-            "cwd": "frontend/app",
+            "cwd": "frontend",
             "request": "launch",
             "type": "dart"
         },
         {
             "name": "app (profile mode)",
-            "cwd": "frontend/app",
+            "cwd": "frontend",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
             "name": "app (release mode)",
-            "cwd": "frontend/app",
+            "cwd": "frontend",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
