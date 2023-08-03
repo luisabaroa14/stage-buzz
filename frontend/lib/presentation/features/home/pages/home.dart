@@ -82,8 +82,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image.asset(
-                          logo6,
-                          // gif,
+                          // logo6,
+                          gif,
                           fit: BoxFit.cover,
                           // width: screenSize.width / 4,
                           // height: screenSize.height / 2,
@@ -154,19 +154,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       ),
                       // SizedBox(width: constraints.maxWidth / 20),
                       HoverButton(
-                        label: 'News',
-                        borderColor: isDarkTheme ? whiteColor : blackColor,
-                        hoverBorderColor: accentColor,
-                        onPressed: () => context.goNamed(NewsScreen.route),
-                      ),
-                      // SizedBox(width: constraints.maxWidth / 20),
-                      HoverButton(
                         label: 'Events',
                         borderColor: isDarkTheme ? whiteColor : blackColor,
                         hoverBorderColor: accentColor,
                         onPressed: () => context.goNamed(EventsScreen.route),
                       ),
                       // SizedBox(width: constraints.maxWidth / 20),
+                      HoverButton(
+                        label: 'News',
+                        borderColor: isDarkTheme ? whiteColor : blackColor,
+                        hoverBorderColor: accentColor,
+                        onPressed: () => context.goNamed(NewsScreen.route),
+                      ),
+                      // SizedBox(width: constraints.maxWidth / 20),
+
                       HoverButton(
                         label: 'Contact',
                         borderColor: isDarkTheme ? whiteColor : blackColor,
