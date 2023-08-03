@@ -2,7 +2,7 @@ import 'package:app/core/utils/constants/colors.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import '../../home/pages/home.dart';
+import '../../../widgets/appbar.dart';
 
 class EventsScreen extends StatefulWidget {
   static const route = '/events';

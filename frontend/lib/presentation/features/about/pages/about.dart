@@ -1,8 +1,8 @@
-import 'package:app/core/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-import '../../home/pages/home.dart';
+import '../../../../core/utils/constants/colors.dart';
+import '../../../widgets/appbar.dart';
 
 class AboutScreen extends StatelessWidget {
   static const route = '/about';

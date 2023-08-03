@@ -7,6 +7,7 @@ import 'constants/colors.dart';
 final ThemeData darkTheme = ThemeData.dark().copyWith(
   brightness: Brightness.dark,
   primaryColor: Colors.blueGrey,
+  visualDensity: VisualDensity.adaptivePlatformDensity,
   colorScheme: ColorScheme.fromSwatch().copyWith(
     primary: accentColor,
   ),
@@ -20,6 +21,7 @@ final ThemeData darkTheme = ThemeData.dark().copyWith(
 final ThemeData lightTheme = ThemeData.light().copyWith(
   brightness: Brightness.light,
   primaryColor: Colors.grey[50],
+  visualDensity: VisualDensity.adaptivePlatformDensity,
   colorScheme: ColorScheme.fromSwatch().copyWith(
     primary: accentColor,
   ),

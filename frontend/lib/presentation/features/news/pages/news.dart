@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../home/pages/home.dart';
+import '../../../widgets/appbar.dart';
 
 class NewsScreen extends StatelessWidget {
   static const route = '/news';
@@ -9,8 +9,8 @@ class NewsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(),
+    return const Scaffold(
+      appBar: CustomAppBar(),
       body: Center(
         child: Text('News'),
       ),

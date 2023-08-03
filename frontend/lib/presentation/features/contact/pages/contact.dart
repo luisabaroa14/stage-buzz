@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../home/pages/home.dart';
+import '../../../widgets/appbar.dart';
 
 class ContactScreen extends StatelessWidget {
   static const route = '/contact';
@@ -9,8 +9,8 @@ class ContactScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(),
+    return const Scaffold(
+      appBar: CustomAppBar(),
       body: Center(
         child: Text('Contact'),
       ),
