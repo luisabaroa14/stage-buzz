@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'constants/colors.dart';
 
-// https://stackoverflow.com/questions/60232070/how-to-implement-dark-mode-and-light-mode-in-flutter
-
 final ThemeData darkTheme = ThemeData.dark().copyWith(
   brightness: Brightness.dark,
   primaryColor: Colors.blueGrey,
+  scaffoldBackgroundColor: Colors.black,
   visualDensity: VisualDensity.adaptivePlatformDensity,
   colorScheme: ColorScheme.fromSwatch().copyWith(
     primary: accentColor,
