@@ -48,7 +48,7 @@ class _EventGridCardState extends State<EventGridCard> {
             child: Stack(
               children: [
                 // Background Image covering full card
-                Container(
+                SizedBox(
                   width: double.infinity,
                   height: double.infinity,
                   child: Image.network(
