@@ -37,16 +37,16 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   # Text Scroll
-  marquee: ^2.2.3
+  marquee: ^2.3.0
 
   # Navigation
   go_router: ^10.0.0
 
-  # Image carrousel
-  carousel_slider: ^4.2.1
+  # State Management
+  provider: ^6.1.5
 
-  # Calendar
-  syncfusion_flutter_calendar: ^22.2.5
+  # Redirect to external URLs
+  url_launcher: ^6.3.2
 
   # Bloc State Management
   flutter_bloc: ^8.1.3
