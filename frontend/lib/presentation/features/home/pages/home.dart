@@ -62,11 +62,8 @@ class HomeScreen extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        // logo6,
                         gif,
                         fit: BoxFit.cover,
-                        // width: screenSize.width / 4,
-                        // height: screenSize.height / 2,
                       ),
                     ),
                   ),
@@ -74,6 +71,14 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 60),
               ConcertRows(dataList: concerts),
+              const SizedBox(height: 60),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  concert,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ],
           ),
         ),
@@ -93,4 +98,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-

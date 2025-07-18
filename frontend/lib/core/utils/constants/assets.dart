@@ -6,3 +6,4 @@ const String logo5 = 'assets/logos/Logo_StageBuzz-5.png';
 const String logo6 = 'assets/logos/Logo_StageBuzz-6.png';
 
 const String gif = 'assets/music.gif';
+const String concert = 'assets/concert.jpg';
