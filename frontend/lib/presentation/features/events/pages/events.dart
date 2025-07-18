@@ -1,202 +1,154 @@
-import 'package:app/core/utils/constants/colors.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:app/presentation/features/events/widgets/event_card.dart';
+import 'package:app/presentation/features/events/widgets/event_grid_card.dart';
+import 'package:app/presentation/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 
-import '../../../widgets/appbar.dart';
+class Event {
+  final String name;
+  final String description;
+  final String url;
+  final String imageUrl;
 
-class EventsScreen extends StatefulWidget {
+  Event({
+    required this.name,
+    required this.description,
+    required this.url,
+    required this.imageUrl,
+  });
+}
+
+class EventsScreen extends StatelessWidget {
   static const route = '/events';
 
   const EventsScreen({super.key});
 
-  @override
-  State<EventsScreen> createState() => _EventsScreenState();
-}
-
-class _EventsScreenState extends State<EventsScreen> {
-  int _current = 0;
-
-  final CarouselController _controller = CarouselController();
-
-  List _isHovering = [false, false, false, false, false, false, false];
-  List _isSelected = [true, false, false, false, false, false, false];
-
-  final List<String> images = [
-    'assets/concert.jpg',
-    'assets/f1.jpg',
-    'assets/championship.jpg',
-    'assets/football.jpg',
-    'assets/american_football.jpg',
+  // Static list of events
+  static final List<Event> events = [
+    Event(
+      name: 'Coachella Valley Music Festival',
+      description:
+          'The ultimate music and arts festival featuring top artists from around the world in the California desert.',
+      url: 'https://coachella.com',
+      imageUrl:
+          'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800',
+    ),
+    Event(
+      name: 'Glastonbury Festival',
+      description:
+          'Legendary British festival showcasing contemporary performing arts with a focus on music.',
+      url: 'https://glastonburyfestivals.co.uk',
+      imageUrl:
+          'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800',
+    ),
+    Event(
+      name: 'Lollapalooza',
+      description:
+          'Multi-genre music festival featuring alternative rock, heavy metal, punk rock, hip hop, and electronic dance music.',
+      url: 'https://lollapalooza.com',
+      imageUrl:
+          'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800',
+    ),
+    Event(
+      name: 'Bonnaroo Music Festival',
+      description:
+          'Four-day music festival featuring diverse musical styles including indie rock, world music, hip hop, jazz, and more.',
+      url: 'https://bonnaroo.com',
+      imageUrl:
+          'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=800',
+    ),
+    Event(
+      name: 'Tomorrowland',
+      description:
+          'The world\'s premier electronic dance music festival bringing together the biggest DJs and producers.',
+      url: 'https://tomorrowland.com',
+      imageUrl:
+          'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800',
+    ),
   ];
-
-  final List<String> places = [
-    'Concerts',
-    'F1',
-    'Horse Shows',
-    'Soccer',
-    'Football',
-  ];
-
-  List<Widget> generateImageTiles(Size screenSize) {
-    return images
-        .map(
-          (element) => ClipRRect(
-            borderRadius: BorderRadius.circular(8.0),
-            child: ColorFiltered(
-              colorFilter: const ColorFilter.mode(
-                Color.fromARGB(119, 77, 217, 149),
-                BlendMode.color,
-              ),
-              child: Image.asset(
-                element,
-                fit: BoxFit.cover,
-                // height: screenSize.height / 1.2,
-                // height: screenSize.height / 2,
-                width: screenSize.width / 1.2,
-              ),
-            ),
-          ),
-        )
-        .toList();
-  }
 
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.sizeOf(context);
-
-    var imageSliders = generateImageTiles(screenSize);
+    final isDarkTheme = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
       appBar: const CustomAppBar(),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
-                'Featured Events',
-                style: TextStyle(
-                  fontFamily: 'Raleway',
-                  fontSize: 40,
-                  fontWeight: FontWeight.w700,
-                ),
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Header Section
+            const Text(
+              'Upcoming Events',
+              style: TextStyle(
+                fontSize: 48,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Raleway',
               ),
-              const SizedBox(height: 15),
-              Stack(
-                alignment: Alignment.center,
-                clipBehavior: Clip.none,
-                children: [
-                  CarouselSlider(
-                    items: imageSliders,
-                    carouselController: _controller,
-                    options: CarouselOptions(
-                      enlargeCenterPage: true,
-                      aspectRatio: 22 / 9,
-                      autoPlay: false,
-                      enlargeFactor: 0.3,
-                      onPageChanged: (index, reason) => setState(() {
-                        _current = index;
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Discover amazing music events and festivals happening around the world. Click on any event to learn more and get tickets.',
+              style: TextStyle(
+                fontSize: 18,
+                color: isDarkTheme ? Colors.grey[300] : Colors.grey[600],
+                fontFamily: 'Raleway',
+              ),
+            ),
+            const SizedBox(height: 40),
 
-                        for (int i = 0; i < imageSliders.length; i++) {
-                          if (i == index) {
-                            _isSelected[i] = true;
-                          } else {
-                            _isSelected[i] = false;
-                          }
-                        }
-                      }),
+            // Events Carousel
+            SizedBox(
+              height: 400,
+              child: PageView.builder(
+                controller: PageController(
+                  viewportFraction: 0.8,
+                  initialPage: events.length ~/ 2, // Start at middle
+                ),
+                itemCount: events.length,
+                padEnds: false, // Remove extra padding at start/end
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: EventCard(
+                      event: events[index],
+                      isDarkTheme: isDarkTheme,
                     ),
-                  ),
-                  Text(
-                    places[_current],
-                    style: const TextStyle(
-                      fontFamily: 'Raleway',
-                      color: whiteBackgroundColor,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Positioned.fill(
-                    bottom: -20,
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: screenSize.width / 8,
-                        ),
-                        child: Card(
-                          elevation: 10,
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                              top: screenSize.height / 50,
-                              bottom: screenSize.height / 50,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                for (int i = 0; i < places.length; i++)
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      InkWell(
-                                        splashColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        onHover: (value) {
-                                          setState(() {
-                                            value
-                                                ? _isHovering[i] = true
-                                                : _isHovering[i] = false;
-                                          });
-                                        },
-                                        onTap: () {
-                                          _controller.animateToPage(i);
-                                        },
-                                        child: Text(
-                                          places[i],
-                                          style: TextStyle(
-                                            fontWeight: _isHovering[i]
-                                                ? FontWeight.w600
-                                                : FontWeight.w300,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(height: 5),
-                                      Visibility(
-                                        maintainSize: false,
-                                        maintainAnimation: true,
-                                        maintainState: true,
-                                        visible: _isSelected[i],
-                                        child: AnimatedOpacity(
-                                          duration:
-                                              const Duration(milliseconds: 400),
-                                          opacity: _isSelected[i] ? 1 : 0,
-                                          child: Container(
-                                            height: 5,
-                                            decoration: const BoxDecoration(
-                                              color: accentColor,
-                                              borderRadius: BorderRadius.all(
-                                                Radius.circular(10),
-                                              ),
-                                            ),
-                                            width: screenSize.width / 10,
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                  );
+                },
               ),
-              const SizedBox(height: 150),
-            ],
-          ),
+            ),
+
+            const SizedBox(height: 40),
+
+            // Event Grid (Alternative view)
+            const Text(
+              'All Events',
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Raleway',
+              ),
+            ),
+            const SizedBox(height: 20),
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 20,
+                childAspectRatio: 1.2,
+              ),
+              itemCount: events.length,
+              itemBuilder: (context, index) {
+                return EventGridCard(
+                  event: events[index],
+                  isDarkTheme: isDarkTheme,
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
