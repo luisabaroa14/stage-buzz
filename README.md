@@ -11,7 +11,7 @@ A cross-platform Flutter concept app demonstrating a minimal concert discovery i
 - 🚀 Flutter Web support with easy deployment
 
 ## 📸 Screenshots
-![Home Screenshot](frontend/assets/screenshots/home.png)
+![Home Screenshot](frontend/assets/screenshots/app.gif)
 
 ## 🚀 Getting Started
 
