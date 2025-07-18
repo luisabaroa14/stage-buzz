@@ -1,6 +1,7 @@
 import 'package:app/core/utils/constants/assets.dart';
 import 'package:app/core/utils/constants/colors.dart';
 import 'package:app/presentation/widgets/custom_appbar.dart';
+import 'package:app/presentation/widgets/theme_button.dart';
 import 'package:flutter/material.dart';
 
 class AboutScreen extends StatelessWidget {
@@ -165,6 +166,7 @@ class AboutScreen extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: const ThemeButton(),
     );
   }
 

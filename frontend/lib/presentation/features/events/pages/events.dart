@@ -1,6 +1,7 @@
 import 'package:app/presentation/features/events/widgets/event_card.dart';
 import 'package:app/presentation/features/events/widgets/event_grid_card.dart';
 import 'package:app/presentation/widgets/custom_appbar.dart';
+import 'package:app/presentation/widgets/theme_button.dart';
 import 'package:flutter/material.dart';
 
 class Event {
@@ -151,6 +152,7 @@ class EventsScreen extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: const ThemeButton(),
     );
   }
 }
