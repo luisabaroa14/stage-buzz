@@ -1,6 +1,5 @@
+import 'package:app/presentation/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
-
-import '../../../widgets/appbar.dart';
 
 class ContactScreen extends StatelessWidget {
   static const route = '/contact';

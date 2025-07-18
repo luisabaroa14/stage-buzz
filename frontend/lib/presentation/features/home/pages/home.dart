@@ -1,3 +1,4 @@
+import 'package:app/presentation/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -5,7 +6,6 @@ import '../../../../core/bloc/theme/theme_bloc.dart';
 import '../../../../core/utils/constants/assets.dart';
 import '../../../../core/utils/constants/colors.dart';
 import '../../../../core/utils/constants/lists.dart';
-import '../../../widgets/appbar.dart';
 import '../widgets/concert_rows.dart';
 
 class HomeScreen extends StatelessWidget {
